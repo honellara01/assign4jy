@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      A4- Jennifer Yepez
+    </ion-title>
+    <ion-buttons slot="primary">
+      <ion-button routerLink="/home/newquote"
+      color="primary">
+        <ion-icon name="add" slot="icon-only"></ion-icon>
+      </ion-button>      
+  </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+     <ion-col size-md="8" offset-md="2">
+      <ion-list>
+        <ion-item-sliding *ngFor="let quote of quotesCollection; let i =index">
+        <ion-item [routerLink] ="['/','home','quotedetail',quote.id]">
+          <ion-label class="ion-text-wrap">
+            <h2>{{i+1}}. {{quote.person}}</h2>
+            <p>{{quote.text}}</p>
+          </ion-label>
+        </ion-item>
+
+        <ion-item-options side="end">
+         <ion-item-option color="danger" (click)="onRemovingQuote(quote.id)">
+          <ion-icon name="trash" slot="icon-only"></ion-icon>
+          </ion-item-option>
+         
+          <ion-item-option color="primary">
+            <ion-icon name="pencil" slot="icon-only"
+            [routerLink] ="['/','home','editquote', quote.id]"></ion-icon>
+          </ion-item-option>
+          
+        </ion-item-options>
+       </ion-item-sliding>
+      </ion-list>
+    </ion-col>
+   </ion-row>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">
+      New Quote
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form">
+    <ion-grid>
+      <ion-row>
+        <ion-col size-md="6" offset-md="3">
+          <ion-item>
+            <ion-label position="floating">Person</ion-label>
+            <ion-input type="text" autocomplete autocorrect formControlName="person"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Quote Text</ion-label>
+            <ion-textarea rows="3" formControlName="quotetext"></ion-textarea>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+    <ion-row class="ion-margin-top">
+      <ion-col size-md="6" offset-md="3">
+        <ion-button class="initial-caps" fill="outline" 
+        (click)="onCreateQuote()" [disabled]="!form.valid">Add</ion-button>
+        <ion-button class="initial-caps ion-margin-start" 
+        fill="outline" color="danger" href="/home">Cancel</ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
